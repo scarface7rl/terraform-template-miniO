@@ -1,5 +1,5 @@
 $script = <<-SCRIPT
-#!/bin/bash
+#!/bin/sh
 rm -rf terraform-template-miniO
 sudo apt-get update
 wget https://dl.min.io/server/minio/release/linux-amd64/minio_20220726005303.0.0_amd64.deb
