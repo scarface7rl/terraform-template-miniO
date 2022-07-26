@@ -18,8 +18,8 @@ sudo apt update
 sudo apt-get install terraform
 terraform -help plan
 sudo apt-get upgrade -y
-sudo mkdir minio_server
-cd minio_server
+git clone --depth 1 'https://github.com/scarface7rl/terraform-template-miniO.git' && rm -rf REPO/.git
+cd terraform-template-miniO
 terraform init
 terraform apply
 SCRIPT
