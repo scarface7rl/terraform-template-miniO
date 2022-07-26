@@ -7,18 +7,26 @@ terraform {
   }
 }
 
+provider "minio" {
+  # The Minio server endpoint.
+  # NOTE: do NOT add an http:// or https:// prefix!
+  # Set the `ssl = true/false` setting instead.
+  # Specify your minio user access key here.
+  endpoint = "my-minio.domain.com"
+  access_key = "admin" 
+  # Specify your minio user secret key here.
+  secret_key = "admin"
+  # If true, the server will be contacted via https://
+  ssl = false
+}
+
 # Create a bucket.
 resource "minio_bucket" "bucket" {
   name = "bucket"
 }
 
-resource "minio_group" "group2" {
-  name = "group2"
-}
-
-# Create a user with specified access credentials, policies and group membership.
-resource "minio_user" "user1" {
-  access_key = "00000001"
-  secret_key = "00000001"
-
+# Create a user group and assign the specified policies.
+resource "minio_group" "group1" {
+  name = "group1"
+  policies = [minio_canned_policy.policy1.name]
 }
