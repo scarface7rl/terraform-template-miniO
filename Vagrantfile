@@ -15,6 +15,7 @@ git clone --depth 1 https://github.com/scarface7rl/terraform-template-miniO.git
 cd terraform-template-miniO
 terraform init -upgrade
 terraform apply -auto-approve -lock=false
+sudo minio server /home/minio_server --console-address ":9001"
 SCRIPT
 
 Vagrant.configure("2") do |config|
@@ -26,4 +27,4 @@ Vagrant.configure("2") do |config|
 end
 
 
-# sudo minio server /home/vagrant/minio_server --console-address ":9001"
+# sudo minio server /home/minio_server --console-address ":9001"

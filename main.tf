@@ -13,9 +13,3 @@ provider "minio" {
   secret_key = "admin"
   ssl = true
 }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo minio server /home/vagrant/minio_server --console-address :9001",
-      ]
-  }
