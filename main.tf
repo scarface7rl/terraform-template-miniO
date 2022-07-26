@@ -14,9 +14,9 @@ provider "minio" {
   # Set the `ssl = true/false` setting instead.
   endpoint = "localhost:9000"
   # Specify your minio user access key here.
-  access_key = "00000000"
+  access_key = "admin"
   # Specify your minio user secret key here.
-  secret_key = "00000000"
+  secret_key = "admin"
   # If true, the server will be contacted via https://
   ssl = false
 }
@@ -66,8 +66,8 @@ data "minio_canned_policy" "console_admin" {
 
 # Create a user with specified access credentials, policies and group membership.
 resource "minio_user" "user1" {
-  access_key = "00000001"
-  secret_key = "00000001"
+  access_key = "user"
+  secret_key = "password"
   policies = [
     minio_canned_policy.policy1.name,
     # Note: using a data source here!
