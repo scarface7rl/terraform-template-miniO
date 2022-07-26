@@ -21,7 +21,7 @@ sudo apt-get upgrade -y
 git clone --depth 1 'https://github.com/scarface7rl/terraform-template-miniO.git' && rm -rf REPO/.git
 cd terraform-template-miniO
 terraform init
-terraform apply
+terraform apply -auto-approve 
 SCRIPT
 
 Vagrant.configure("2") do |config|

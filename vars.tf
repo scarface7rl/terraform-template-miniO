@@ -1,6 +1,6 @@
 variable "name" {
   type    = string
-  default = "bucket_test"
+  default = "bucket-test"
 }
 
 variable "username" {
