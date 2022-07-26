@@ -11,7 +11,7 @@ provider "minio" {
   # The Minio server endpoint.
   # NOTE: do NOT add an http:// or https:// prefix!
   # Set the `ssl = true/false` setting instead.
-  endpoint = "http://192.168.15.5:9000"
+  endpoint = "192.168.15.5:9000"
   # Specify your minio user access key here.
   access_key = var.username
   # Specify your minio user secret key here.
