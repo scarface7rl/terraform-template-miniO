@@ -1,18 +1,18 @@
 $script = <<-SCRIPT
+#!/bin/bash
+rm -rf terraform-template-miniO
 sudo apt-get update
 wget https://dl.min.io/server/minio/release/linux-amd64/minio_20220726005303.0.0_amd64.deb
 sudo dpkg -i minio_20220726005303.0.0_amd64.deb
 minio --version
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
-sudo apt-get install terraform
+wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
 terraform -help plan
 sudo apt-get upgrade -y
-sudo rm -rf terraform-template-miniO
-git clone --depth 1 'https://github.com/scarface7rl/terraform-template-miniO.git'
+git clone --depth 1 https://github.com/scarface7rl/terraform-template-miniO.git
 cd terraform-template-miniO
-export MINIO_ENDPOINT="localhost:9000"
-export MINIO_ACCESS_KEY="admin"
-export MINIO_SECRET_KEY="admin"
 terraform init -upgrade
 terraform apply -auto-approve -lock=false
 SCRIPT
