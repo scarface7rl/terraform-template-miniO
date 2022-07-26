@@ -19,8 +19,3 @@ provider "minio" {
   # If true, the server will be contacted via https://
   ssl = false
 }
-
-# Create a bucket.
-resource "minio_bucket" "bucket" {
-  name = "bucket"
-}
