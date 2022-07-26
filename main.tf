@@ -14,8 +14,8 @@ provider "minio" {
   ssl = true
 }
 
-provisioner "remote-exec" {
-  inline = [
-    "sudo minio server /home/vagrant/minio_server --console-address :9001",
-    ]
-}
+  provisioner "remote-exec" {
+    inline = [
+      "sudo minio server /home/vagrant/minio_server --console-address :9001",
+      ]
+  }
