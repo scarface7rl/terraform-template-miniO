@@ -18,6 +18,9 @@ terraform -help plan
 sudo apt-get upgrade -y
 git clone --depth 1 'https://github.com/scarface7rl/terraform-template-miniO.git' && rm -rf REPO/.git
 cd terraform-template-miniO
+export MINIO_ENDPOINT="localhost:9000"
+export MINIO_ACCESS_KEY="admin"
+export MINIO_SECRET_KEY="admin"
 terraform init -upgrade
 terraform apply -auto-approve -lock=false
 SCRIPT
