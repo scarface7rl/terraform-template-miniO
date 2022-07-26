@@ -8,20 +8,14 @@ terraform {
 }
 
 provider "minio" {
-  # The Minio server endpoint.
-  # NOTE: do NOT add an http:// or https:// prefix!
-  # Set the `ssl = true/false` setting instead.
-  # Specify your minio user access key here.
   endpoint = "my-minio.domain.com"
   access_key = "admin" 
-  # Specify your minio user secret key here.
   secret_key = "admin"
-  # If true, the server will be contacted via https://
-  ssl = false
+  ssl = true
 }
 
-  provisioner "remote-exec" {
-    inline = [
-      "sudo minio server /home/vagrant/minio_server --console-address ":9001"",
+provisioner "remote-exec" {
+  inline = [
+    "sudo minio server /home/vagrant/minio_server --console-address ":9001"",
     ]
-  }
+}
