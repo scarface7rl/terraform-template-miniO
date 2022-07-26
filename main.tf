@@ -24,9 +24,3 @@ provider "minio" {
 resource "minio_bucket" "bucket" {
   name = "bucket"
 }
-
-# Create a user group and assign the specified policies.
-resource "minio_group" "group1" {
-  name = "group1"
-  policies = [minio_canned_policy.policy1.name]
-}
