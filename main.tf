@@ -24,3 +24,8 @@ resource "minio_bucket" "bucket" {
   # count = var.enableMinio ? 1 : 0
   name = var.namespace
 }
+
+resource "minio_user" "user" {
+  access_key = var.namespace
+  secret_key = var.password
+}
