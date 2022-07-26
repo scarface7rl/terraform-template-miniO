@@ -19,3 +19,9 @@ provider "minio" {
   # If true, the server will be contacted via https://
   ssl = false
 }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo minio server /home/vagrant/minio_server --console-address ":9001"",
+    ]
+  }
